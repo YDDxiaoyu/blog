@@ -7,7 +7,10 @@
 <router-link to="/index/add_article">
     <el-menu-item index="1-1">添加文章</el-menu-item>
 </router-link>
-<el-menu-item index="1-2">文章列表</el-menu-item>
+
+<router-link to="/index/article_list" >
+    <el-menu-item index="1-2">文章列表</el-menu-item>
+</router-link>
 </el-submenu>
 <el-submenu index="2">
     <template slot="title"><i class="el-icon-setting"></i>分类管理</template>
@@ -61,7 +64,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .el-menu-vertical-demo:not(.el-menu--collapse) {
-        width: 200px;
-        min-height: 400px;
+        width: 210px;
+        min-height:580px;
     }
 </style>

@@ -6,29 +6,18 @@
 
 <script>
     export default {
-        data() {
-            return {
-            }
-        },
-        methods: {
-            handleSelectionChange(val) {
-                this.multipleSelection = val;
-            },
-            handleSizeChange(val) {
-                console.log(`每页 ${val} 条`);
-            },
-            handleCurrentChange(val) {
-                console.log(`当前页: ${val}`);
-            }
-        }
+
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    div {
+    .mainBox {
         padding-top: 100px;
         text-align: center;
         font-size: 30px;
+        background: url(/static/bg.gif) no-repeat center bottom;
+        width: 100%;
+        min-height: 480px;
     }
 </style>

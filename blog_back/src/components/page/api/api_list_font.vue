@@ -2,7 +2,7 @@
   <div class="body">
     <el-table
     :data="everypage"
-    style="width: 100%"
+    style="width: 862px;margin:0 auto"
     :row-class-name="tableRowClassName" @row-dblclick.self="clickfn">
     <el-table-column
       prop="title"
@@ -49,6 +49,7 @@
 </template>
 
 <style>
+
     .el-table .info-row {
         background: #c9e5f5;
     }

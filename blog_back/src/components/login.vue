@@ -45,9 +45,11 @@
                         loginpw: this.loginpw.val
                     }).then(function(data) {
                         _this.$message(data.data.msg)
-                        if(data.data.code==='1001'){
+                        console.log(data.data.code)
+                        if(data.data.code=='1001'){
+                            console.log(111)
                             sessionStorage.setItem('name',_this.loginname.val)
-                            sessionStorage.setItem('urserId',data.data.userid)
+                            sessionStorage.setItem('userId',data.data.userid)
                             _this.$router.push('/index')
                         }
                     })

@@ -1,28 +1,30 @@
 <template>
-     <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-        <h3>一级类名设置</h3>
-        <el-form-item label="中文类名" prop="cn">
-            <el-input type="text" v-model="ruleForm2.cnname_one" auto-complete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="英文类名" prop="en">
-            <el-input v-model.number="ruleForm2.enname_one"></el-input>
-        </el-form-item>
-        <h3>二级类名设置</h3>
-        <el-form-item label="中文类名" prop="cn">
-            <el-input type="text" v-model="ruleForm2.cnname_two" auto-complete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="英文类名" prop="entwo">
-            <el-input v-model.number="ruleForm2.enname_two"></el-input>
-        </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-            <el-button @click="resetForm('ruleForm2')">重置</el-button>
-        </el-form-item>
-    </el-form>
+    <div class="classone">
+            <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+                    <h3>一级类名设置</h3>
+                    <el-form-item label="中文类名" prop="cn">
+                        <el-input type="text" v-model="ruleForm2.cnname_one" auto-complete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="英文类名" prop="en">
+                        <el-input v-model.number="ruleForm2.enname_one"></el-input>
+                    </el-form-item>
+                    <h3>二级类名设置</h3>
+                    <el-form-item label="中文类名" prop="cn">
+                        <el-input type="text" v-model="ruleForm2.cnname_two" auto-complete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="英文类名" prop="entwo">
+                        <el-input v-model.number="ruleForm2.enname_two"></el-input>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
+                        <el-button @click="resetForm('ruleForm2')">重置</el-button>
+                    </el-form-item>
+                </el-form>
+    </div>
 </template>
 
 <script>
-import generateUUID from '../../../assets/js/Unique.js'
+    import generateUUID from '../../../assets/js/Unique.js'
     export default {
         data() {
             var en = (rule, value, callback) => {
@@ -72,16 +74,16 @@ import generateUUID from '../../../assets/js/Unique.js'
         },
         methods: {
             submitForm(formName) {
-                var _this=this;
+                var _this = this;
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        _this.axios.post('/api/back_class/add_class_one',{
+                        _this.axios.post('/api/back_class/add_class_one', {
                             cnname_one: _this[formName].cnname_one,
                             enname_one: _this[formName].enname_one,
                             cnname_two: _this[formName].cnname_two,
                             enname_two: _this[formName].enname_two
-                        }).then(function(data){
-                            if(data.data.code == '1014'){
+                        }).then(function(data) {
+                            if (data.data.code == '1014') {
                                 _this.$message({
                                     message: data.data.msg,
                                     type: 'success'
@@ -109,6 +111,10 @@ import generateUUID from '../../../assets/js/Unique.js'
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
     h3 {
-        margin: 20px 0 20px 40px
+        margin: 20px 0 20px 40px;
+    }
+    
+    .classone input {
+        width: 300px !important;
     }
 </style>

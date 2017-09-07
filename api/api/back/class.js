@@ -258,38 +258,42 @@ router.post("/amend_class_one", function(req, res, next) {
 
     // 修改文章表
     var amendTable = `alter table ${req.body.oldenname_one} rename ${req.body.enname_one}`
-    console.log(amendTable)
-    testsqlFn(req, res, next, sqltest1).then(function(data) {
-        // 检测更新有没有成功
-        return sqlStateFn(req, res, next, updatesql)
-    }, function(err) {
-        res.send({
-            code: "1050",
-            msg: "分类一英文标识冲突"
-        })
-    }).then(function(data) {
-        query(amendTable, function(err, rows, fields) {
-            if (err) {
-                res.send({
-                    code: "1051",
-                    msg: "修改表失败"
-                })
-            } else {
-                res.send({
-                    code: "1052",
-                    msg: "修改表成功"
-                })
-            }
+        // console.log(amendTable)
+    try {
+        testsqlFn(req, res, next, sqltest1).then(function(data) {
+            // 检测更新有没有成功
+            return sqlStateFn(req, res, next, updatesql)
+        }, function(err) {
+            res.send({
+                code: "1050",
+                msg: "分类一英文标识冲突"
+            })
+        }).then(function(data) {
+            query(amendTable, function(err, rows, fields) {
+                if (err) {
+                    res.send({
+                        code: "1051",
+                        msg: "修改表失败"
+                    })
+                } else {
+                    res.send({
+                        code: "1052",
+                        msg: "修改表成功"
+                    })
+                }
 
-        })
+            })
 
 
-    }, function(err) {
-        res.send({
-            code: "1053",
-            msg: "修改表失败"
+        }, function(err) {
+            res.send({
+                code: "1053",
+                msg: "修改表失败"
+            })
         })
-    })
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 // 修改二级分类

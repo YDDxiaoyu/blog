@@ -37,7 +37,19 @@ module.exports = {
                 pathRewrite: {
                     '^/api': '/api'
                 }
+            },
+            '/ueditor': {
+                //后台接口地址
+                target: 'http://localhost:3000',
+                //这里可以模拟服务器进行get和post参数的传递
+                changeOrigin: true,
+                //前端所有的/ueditor'请求都会请求到后台的/ueditor'路径之下
+                pathRewrite: {
+                    '^/ueditor': '/ueditor'
+                }
             }
+
+
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"
         // with this option, according to the CSS-Loader README

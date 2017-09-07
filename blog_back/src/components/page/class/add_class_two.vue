@@ -10,10 +10,10 @@
 </el-form-item>
 <h3>二级类名设置</h3>
 <el-form-item label="中文类名" prop="cn">
-    <el-input type="text" v-model="ruleForm2.cnname_two" auto-complete="off"></el-input>
+    <el-input type="text" v-model="ruleForm2.cnname_two" auto-complete="off" style='width:300px'></el-input>
 </el-form-item>
 <el-form-item label="英文类名" prop="entwo">
-    <el-input v-model.number="ruleForm2.enname_two"></el-input>
+    <el-input v-model.number="ruleForm2.enname_two" style='width:300px'></el-input>
 </el-form-item>
 <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
@@ -115,7 +115,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
     h3 {
         margin: 20px 0 20px 40px
     }

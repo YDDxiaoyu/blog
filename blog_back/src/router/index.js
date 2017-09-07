@@ -13,7 +13,9 @@ import api_amend from '@/components/page/api/api_amend'
 import addClassOne from '@/components/page/class/add_class_one'
 import addList from '@/components/page/class/add_list'
 import addClassTwo from '@/components/page/class/add_class_two'
-
+import amendClass from '@/components/page/class/amend_class'
+import articleList from '@/components/page/class/article_list'
+import amend_article from '@/components/page/class/amend_article'
 import addArticle from "@/components/page/class/add_article"
 
 Vue.use(Router)
@@ -67,6 +69,18 @@ export default new Router({
                 path: 'api_amend',
                 name: 'api_amend',
                 component: api_amend,
+            }, {
+                path: 'amend_class',
+                name: 'amendClass',
+                component: amendClass,
+            }, {
+                path: 'article_list',
+                name: 'articleList',
+                component: articleList,
+            }, {
+                path: 'amend_article',
+                name: 'amend_article',
+                component: amend_article,
             }]
         }
     ]

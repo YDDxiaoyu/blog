@@ -8,6 +8,7 @@
                 当前登录账户：{{userName}}
             </div>
         </header>
+        <div class="clear"></div>
         <main>
             <div class="pageLiat">
                 <page-left></page-left>
@@ -24,28 +25,27 @@
 </template>
 
 <script>
-import pageLeft from './page/page_left'
-export default {
-  name: 'hello',
-  data () {
-    return {
-        activeNames: ['1'],
-        userName:""
+    import pageLeft from './page/page_left'
+    export default {
+        name: 'hello',
+        data() {
+            return {
+                activeNames: ['1'],
+                userName: ""
+            }
+        },
+        mounted() {
+            this.userName = sessionStorage.getItem('name')
+        },
+        components: {
+            pageLeft
+        }
     }
-  }, 
-  mounted(){
-    this.userName=sessionStorage.getItem('name')
-  },
-  components:{
-    pageLeft
-  }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.container {
+    .container {
         width: 100%;
         height: 100%;
     }
@@ -68,13 +68,15 @@ export default {
         float: right;
     }
     
+    .container main {
+        display: flex;
+    }
+    
     .container main .pageLiat {
-        float: left;
-        width: 200px;
+        width: 15%;
     }
     
     .container main .pageContent {
-        float: left;
-        padding-left: 15px;
+        width: 85%;
     }
 </style>
